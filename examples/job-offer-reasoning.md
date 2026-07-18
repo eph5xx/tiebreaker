@@ -52,11 +52,12 @@ flagged low confidence (the master's stipend was never stated).
 
 ## Verdict
 
-| Rank | Option | Growth w5 | Compensation w4 | Mission pull w4 | Day-to-day energy w4 | Stability w3 | Total /100 |
-|--:|---|--:|--:|--:|--:|--:|--:|
-| 1 | **Nimbus (founding engineer)** | 5 | 2 | 5 | 4 | 1 | **72** |
-| 2 | ML master's | 5 | 1 | 3 | 4 | 4 | 69 |
-| 3 | BigCo (stay senior) | 2 | 5 | 2 | 2 | 5 | 61 |
+| Option | Growth | Compensation | Mission pull | Day-to-day energy | Stability | Total |
+|---|--:|--:|--:|--:|--:|--:|
+| | ×5 | ×4 | ×4 | ×4 | ×3 | /100 |
+| 🥇 **Nimbus (founding engineer)** | 5 | 2 | 5 | 4 | 1 | **72** |
+| 🥈 ML master's | 5 | 1 | 3 | 4 | 4 | 69 |
+| 🥉 BigCo (stay senior) | 2 | 5 | 2 | 2 | 5 | 61 |
 
 **Winner: Nimbus (founding engineer)** - It maxes the decisive factor
 (Growth, w5) and Mission pull, the thing you kept circling back to. The

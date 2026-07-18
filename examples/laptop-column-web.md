@@ -48,11 +48,12 @@ pass.
 
 ## Verdict
 
-| Rank | Option | Performance w5 | Price w4 | Battery w4 | Repairability w4 | Portability w3 | Total /100 |
-|--:|---|--:|--:|--:|--:|--:|--:|
-| 1 | **MacBook Pro 14 M4 Pro** | 5 | 2 | 5 | 1 | 4 | **69** |
-| 2 | Framework 16 | 3 | 3 | 2 | 5 | 2 | 61 |
-| 3 | ThinkPad X1 Carbon Gen 13 | 2 | 3 | 3 | 2 | 5 | 57 |
+| Option | Performance | Price | Battery | Repairability | Portability | Total |
+|---|--:|--:|--:|--:|--:|--:|
+| | ×5 | ×4 | ×4 | ×4 | ×3 | /100 |
+| 🥇 **MacBook Pro 14 M4 Pro** | 5 | 2 | 5 | 1 | 4 | **69** |
+| 🥈 Framework 16 | 3 | 3 | 2 | 5 | 2 | 61 |
+| 🥉 ThinkPad X1 Carbon Gen 13 | 2 | 3 | 3 | 2 | 5 | 57 |
 
 **Winner: MacBook Pro 14 M4 Pro** - It took the two heaviest factors: 48GB
 unified memory runs 13B models locally (Performance, w5) and real-world
