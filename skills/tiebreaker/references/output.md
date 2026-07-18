@@ -8,23 +8,28 @@ write no files - no CSV, no HTML, no exports (deferred).
 ```
 ## Verdict
 
-| Rank | Option | Performance w5 | Price w4 | Battery w4 | Repairability w4 | Portability w3 | Total /100 |
-|--:|---|--:|--:|--:|--:|--:|--:|
-| 1 | **MacBook Pro 14** | 5 | 2 | 5 | 1 | 4 | **69** |
-| 2 | Framework 16 | 3 | 3 | 2 | 5 | 2 | 61 |
-| 3 | ThinkPad X1 Carbon | 2 | 3 | 3 | 2 | 5 | 57 |
+| Option | Performance | Price | Battery | Repairability | Portability | Total |
+|---|--:|--:|--:|--:|--:|--:|
+| | ×5 | ×4 | ×4 | ×4 | ×3 | /100 |
+| 🥇 **MacBook Pro 14** | 5 | 2 | 5 | 1 | 4 | **69** |
+| 🥈 Framework 16 | 3 | 3 | 2 | 5 | 2 | 61 |
+| 🥉 ThinkPad X1 Carbon | 2 | 3 | 3 | 2 | 5 | 57 |
 
 **Winner: MacBook Pro 14** - <2-4 sentences>
 ```
 
 Rules:
 
-- Factor headers read `<FactorName> w<weight>` - the weight stays visible.
-- The total header reads `Total /<max>` where max = 5 x (sum of weights),
-  calibrating the reader on what a perfect score would be.
+- Column headers are the bare factor names; the last header reads `Total`.
+- The first body row is the weight row: `×<weight>` under each factor and
+  `/<max>` under Total, where max = 5 x (sum of weights), calibrating the
+  reader on what a perfect score would be.
+- No Rank column - rows sorted by total, descending, imply the ranking. The
+  top three option names carry a medal prefix (🥇 🥈 🥉); options ranked 4+
+  are plain names. Tied options keep one row each, adjacent.
 - Cells hold the raw 1-5 scores, never weighted products, so any reader can
   recompute a row by hand: total = sum(weight x score).
-- Rows sorted by total, descending. The winner's name and total are bolded.
+- The winner's name and total are bolded.
 - Recompute every total from the validated scores immediately before
   printing. A total in chat must survive a hand check.
 
