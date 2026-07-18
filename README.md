@@ -36,22 +36,22 @@ One checkpoint, parallel scoring, no files written. Speed is a feature.
 
 ## Install
 
+With [skills](https://github.com/vercel-labs/skills), for the current project:
+
+```sh
+npx skills add eph5xx/tiebreaker
+```
+
 Personal (available in all projects):
 
 ```sh
-git clone <repo-url> ~/.claude/skills/tiebreaker
+npx skills add eph5xx/tiebreaker -g
 ```
 
-Project (one repo, shared with collaborators):
+Manually, without the CLI - the skill lives in `skills/tiebreaker/`:
 
 ```sh
-git clone <repo-url> .claude/skills/tiebreaker
-```
-
-Hacking on it:
-
-```sh
-git clone <repo-url> && ln -s "$PWD/tiebreaker" ~/.claude/skills/tiebreaker
+git clone <repo-url> && ln -s "$PWD/tiebreaker/skills/tiebreaker" ~/.claude/skills/tiebreaker
 ```
 
 The directory name is the command name - keep it `tiebreaker`. The skill
@@ -89,7 +89,7 @@ For O options and F factors:
 | cell | O x F | High stakes, small matrix, maximum per-cell depth |
 | table | 1 | Subjective calls and cheap sanity runs |
 
-Details and tradeoffs: [references/strategy.md](references/strategy.md).
+Details and tradeoffs: [references/strategy.md](skills/tiebreaker/references/strategy.md).
 
 ## Research modes
 

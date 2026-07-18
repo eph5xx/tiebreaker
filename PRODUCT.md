@@ -59,8 +59,8 @@ default, and an option to skip web research for subjective calls.
 - CSV / HTML image / Google Sheets output.
 
 ## Definition of done (OSS-ready)
-- [ ] `SKILL.md` — one-shot + confirm flow, strategy arg + NL, default column-wise
-- [ ] `references/` — `strategy.md`, `scoring.md`, `weights.md`, `output.md`
+- [ ] `skills/tiebreaker/SKILL.md` — one-shot + confirm flow, strategy arg + NL, default column-wise
+- [ ] `skills/tiebreaker/references/` — `strategy.md`, `scoring.md`, `weights.md`, `output.md`
 - [ ] 1–2 worked examples (`examples/`, input → matrix → verdict)
 - [ ] `README.md` with install + invoke + strategy-config docs
 - [ ] `LICENSE` + `CONTRIBUTING.md`

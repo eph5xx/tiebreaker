@@ -4,11 +4,12 @@ Thanks for helping make Tiebreaker better.
 
 ## Repo layout
 
-The repo root is the skill directory. Cloning it into `~/.claude/skills/tiebreaker`
-is a complete install.
+The skill itself lives in `skills/tiebreaker/` - that folder is what installers
+(`npx skills add eph5xx/tiebreaker`) copy and what a manual symlink points at.
+Everything at the repo root is documentation and repo meta, never installed.
 
-- `SKILL.md` - the orchestrator: input parsing, run rules, the five steps
-- `references/` - step-specific material, loaded just in time:
+- `skills/tiebreaker/SKILL.md` - the orchestrator: input parsing, run rules, the five steps
+- `skills/tiebreaker/references/` - step-specific material, loaded just in time:
   - `weights.md` - factor, weight, and anchored-rubric authoring (Step 2)
   - `scoring.md` - scoring-agent prompt template, output grammar, validation (Step 4)
   - `strategy.md` - the four scoring strategies, batching, research budgets
@@ -18,7 +19,7 @@ is a complete install.
 
 ## Dev loop
 
-1. Symlink the repo: `ln -s "$PWD" ~/.claude/skills/tiebreaker`
+1. Symlink the skill folder: `ln -s "$PWD/skills/tiebreaker" ~/.claude/skills/tiebreaker`
 2. Edit files.
 3. Evaluate in a fresh Claude Code session each time. Leftover authoring context
    in an old session masks instruction gaps; a fresh session is the only honest
