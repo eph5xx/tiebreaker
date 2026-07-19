@@ -113,11 +113,10 @@ Worked end-to-end transcripts:
 
 ## Design notes
 
-Product vision and scope live in [PRODUCT.md](PRODUCT.md). The short version:
-one-shot propose plus a single confirm (fewer round-trips, one point of
-control), anchored rubrics (reproducible scores, not "5 = good"), Claude
-proposes and you edit (speed with control), configurable scoring fanout (the
-speed/quality/cost lever).
+The design in one breath: one-shot propose plus a single confirm (fewer
+round-trips, one point of control), anchored rubrics (reproducible scores, not
+"5 = good"), Claude proposes and you edit (speed with control), configurable
+scoring fanout (the speed/quality/cost lever).
 
 Deferred, deliberately: sensitivity and tie analysis, per-cell evidence
 notes, CSV/HTML/Sheets export.

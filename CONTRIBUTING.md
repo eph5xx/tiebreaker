@@ -15,7 +15,6 @@ Everything at the repo root is documentation and repo meta, never installed.
   - `strategy.md` - the four scoring strategies, batching, research budgets
   - `output.md` - verdict layout (Step 5)
 - `examples/` - worked end-to-end decisions, kept in sync with the formats above
-- `PRODUCT.md` - product vision and scope
 
 ## Dev loop
 
