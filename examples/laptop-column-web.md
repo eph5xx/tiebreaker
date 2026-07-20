@@ -61,6 +61,8 @@ battery clears 12 hours (Battery, w4). Framework 16 swept Repairability even
 after your upweight to 4, but gave back too much on battery and weight. The
 8-point gap means no single scoring call flips this.
 
+Details in .tiebreaker/2026-07-20-laptop-ml-travel.md
+
 ## What this demonstrates
 
 - Flag-free invocation lands on the defaults: column strategy, web research.
@@ -70,3 +72,6 @@ after your upweight to 4, but gave back too much on battery and weight. The
   score this the same way?" check.
 - Totals are hand-checkable from the table: 5x5 + 2x4 + 5x4 + 1x4 + 4x3 = 69.
 - Gap (8) above the largest weight (5), so no near-tie paragraph appears.
+- The `Details in ...` line points at the reasoning log written by default; its
+  format is [references/log.md](../skills/tiebreaker/references/log.md). A web
+  run like this one carries a bundled Sources section.

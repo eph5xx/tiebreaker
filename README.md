@@ -31,9 +31,12 @@ score(option) = sum(weight x cell)  ->  highest total wins
 4. **Score** - parallel subagents fill the matrix, scoring against the
    anchors. They never see the weights, so no factor gets a halo.
 5. **Verdict** - the ranked table, the winner, and a short rationale, printed
-   in chat.
+   in chat, plus a full-record reasoning log written to
+   `./.tiebreaker/<date>-<slug>.md` (disable with `--no-log`). The chat message
+   ends with `Details in .tiebreaker/...`.
 
-One checkpoint, parallel scoring, no files written. Speed is a feature.
+One checkpoint, parallel scoring, a single reasoning log at the end. Speed is a
+feature.
 
 ## Install
 
@@ -77,6 +80,7 @@ I'm stuck choosing between Hetzner and Fly.io for hosting. Help me decide proper
 |---|---|---|
 | Scoring strategy | `--strategy=column\|row\|cell\|table` | "score it cell-wise", "one agent per option", "whole table at once" |
 | Skip web research | `--no-web` | "don't search", "just reason", "it's subjective" |
+| Skip the reasoning log | `--no-log` | "don't save a file", "no log" |
 | Use MCP tools | - | name them: "use the Notion MCP for evidence" |
 
 ## Scoring strategies
@@ -116,10 +120,11 @@ Worked end-to-end transcripts:
 The design in one breath: one-shot propose plus a single confirm (fewer
 round-trips, one point of control), anchored rubrics (reproducible scores, not
 "5 = good"), Claude proposes and you edit (speed with control), configurable
-scoring fanout (the speed/quality/cost lever).
+scoring fanout (the speed/quality/cost lever), and a full-record reasoning log
+at the end (the decision, the rubric, every score with a 1-2 sentence
+rationale, and sources - auditable after the chat scrolls away).
 
-Deferred, deliberately: sensitivity and tie analysis, per-cell evidence
-notes, CSV/HTML/Sheets export.
+Deferred, deliberately: sensitivity and tie analysis, CSV/HTML/Sheets export.
 
 ## Contributing and license
 

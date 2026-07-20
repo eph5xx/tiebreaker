@@ -1,7 +1,8 @@
 # The verdict
 
-Read at Step 5. This is the only sanctioned output shape. Print it in chat;
-write no files - no CSV, no HTML, no exports (deferred).
+Read at Step 5. This is the chat output shape. Print it in chat; unless
+`--no-log`, the same verdict is also captured in the reasoning log
+([log.md](log.md)). No CSV, no HTML, no Sheets export (deferred).
 
 ## Layout
 

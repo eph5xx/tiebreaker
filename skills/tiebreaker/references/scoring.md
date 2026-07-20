@@ -25,7 +25,8 @@ Research mode texts:
 
 - web: "Use WebSearch/WebFetch for evidence. At most 2 searches per cell and 8
   per agent total (12 if you score the whole matrix). Prefer sources from the
-  last 12 months; note stale data in the basis."
+  last 12 months; note stale data in the reasoning. Emit a SOURCE line for each
+  distinct source you actually relied on."
 - none: "Do not use the web, MCP, or any other external tool. Reason from the
   context above and general knowledge only."
 - mcp: "Use <the user-named MCP tools> for evidence, at most 8 calls total;
@@ -73,11 +74,13 @@ SCORING RULES
   reason from what you know and mark confidence low. Score every assigned
   cell.
 - Apply the rubric as written. If it fits an option badly, score it as
-  written anyway and say so in the basis.
+  written anyway and say so in the reasoning.
 - {STRATEGY_RULE}
 
 OUTPUT - one line per assigned cell, exactly:
-SCORE|<option name exactly as written above>|<factor name exactly as written above>|<1-5>|<high|med|low>|<basis, max 25 words, no "|" characters>
+SCORE|<option name exactly as written above>|<factor name exactly as written above>|<1-5>|<high|med|low>|<reasoning, 1-2 sentences, no "|" characters>
+Then, in web mode only, one line per distinct source you relied on:
+SOURCE|<url>
 Then one final line:
 DONE|cells={N_CELLS}
 ```
@@ -93,14 +96,16 @@ RUBRIC: 5 = <anchor>; 3 = <anchor>; 1 = <anchor>
 
 Collect each agent's output and validate before building the verdict:
 
-1. Keep only lines matching `^SCORE\|`; stray prose is ignored by
-   construction.
-2. Split on `|`: exactly 6 fields.
+1. Keep only lines matching `^SCORE\|` or (web mode) `^SOURCE\|`; stray prose
+   is ignored by construction.
+2. Split each `SCORE|` on `|`: exactly 6 fields. Each `SOURCE|` has exactly 2.
 3. Option and factor must match the confirmed spec character for character -
    the template demands a verbatim echo for exactly this reason.
 4. Score must be an integer 1-5; confidence one of high, med, low.
 5. Duplicate cell: first line wins.
 6. Diff the collected cells against the expected option x factor set.
+7. Pool the `SOURCE|` URLs across all agents and dedupe; this set feeds the
+   log's Sources section (references/log.md). None/mcp runs have no sources.
 
 Gaps or malformed cells after all agents return: launch ONE retry agent
 covering all missing cells at once, cell-style prompt ({ASSIGNMENT} lists the
@@ -112,5 +117,6 @@ Cells that were retried or self-scored surface in the verdict's
 low-confidence footnote (references/output.md).
 
 The one-line grammar doubles as context protection: a 35-cell matrix comes
-back as 35 short lines, not 35 research reports. The regex filter makes any
-agent that returns prose anyway harmless.
+back as 35 short lines plus a handful of source URLs, not 35 research reports.
+Reasoning is capped at 1-2 sentences per cell precisely to keep that bound; the
+regex filter makes any agent that returns extra prose anyway harmless.
