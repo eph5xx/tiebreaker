@@ -14,6 +14,7 @@ Everything at the repo root is documentation and repo meta, never installed.
   - `scoring.md` - scoring-agent prompt template, output grammar, validation (Step 4)
   - `strategy.md` - the four scoring strategies, batching, research budgets
   - `output.md` - verdict layout (Step 5)
+  - `log.md` - reasoning-log file format and path (Step 5, unless `--no-log`)
 - `examples/` - worked end-to-end decisions, kept in sync with the formats above
 
 ## Dev loop
@@ -31,7 +32,9 @@ explicitly.
 
 - Exactly one approval checkpoint (Step 3). The user is asked once.
 - `SKILL.md` stays at 200 lines or fewer; detail lives in `references/`.
-- The verdict prints in chat. No files are written, ever.
+- The verdict prints in chat. The only file written is the reasoning log at
+  `./.tiebreaker/<date>-<slug>.md`, and only when logging is on (the default;
+  `--no-log` suppresses it). No CSV, HTML, or Sheets export.
 - No `context: fork` in the frontmatter. A forked skill cannot stop and wait
   for the user at the confirm checkpoint.
 - No `allowed-tools` self-grants. The user's permission settings govern.

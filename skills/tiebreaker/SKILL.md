@@ -7,7 +7,7 @@ description: Settle a decision between concrete options with a weighted scoring
   choosing between named options - "help me decide", "X vs Y vs Z", "which
   should I pick/buy/use" - or asks for a decision matrix, weighted scoring, or
   a tiebreaker.
-argument-hint: "[decision + options] [--strategy=column|row|cell|table] [--no-web]"
+argument-hint: "[decision + options] [--strategy=column|row|cell|table] [--no-web] [--no-log]"
 ---
 
 # Tiebreaker
@@ -30,12 +30,16 @@ without arguments):
 | Decision | One sentence: what is being decided, for whom, with what constraints. |
 | Options | The named options. At least 2. |
 | Given spec | Any factors, weights, or rubric anchors the user already supplied - kept verbatim, propose only the gaps. |
+| Log | on (default): write the reasoning log at Step 5; off when `--no-log` or the user says don't save / no file. |
 
 ## Rules for the whole run
 
 - Exactly ONE approval checkpoint (Step 3). After it, never ask for approval
   again.
-- Everything prints in chat. Write no files - no CSV, no HTML (deferred).
+- The verdict prints in chat. Unless `--no-log`, also write a full-record
+  reasoning log to `./.tiebreaker/<date>-<slug>.md` at Step 5 and end the
+  verdict message with `Details in <path>`. CSV/HTML/Sheets export stays
+  deferred.
 - Cells and weights are integers 1-5. Weights are frozen at the checkpoint.
 - You compute all weighted totals yourself and re-check the arithmetic before
   printing.
@@ -100,7 +104,8 @@ read [references/strategy.md](references/strategy.md) when the strategy is
 not column or the matrix has more than 30 cells.
 
 Fast path: research mode none + table strategy = score the matrix yourself
-inline against the rubrics, then go to Step 5.
+inline against the rubrics, capturing a 1-2 sentence reasoning per cell (so the
+log has content even with no subagents), then go to Step 5.
 
 Otherwise fan out:
 
@@ -127,8 +132,13 @@ table, the winner line with a 2-4 sentence rationale, the near-tie paragraph
 when the top-two gap is at most the largest factor weight, and the
 low-confidence footnote if any cell earned one.
 
-Done when: table, winner, and rationale are in chat and a hand check of the
-totals holds up.
+Then, unless `--no-log`, read [references/log.md](references/log.md), write the
+full-record reasoning log to `./.tiebreaker/<date>-<slug>.md`, and append one
+final line to the chat message: `Details in <path>`. Skip both under
+`--no-log`.
+
+Done when: table, winner, and rationale are in chat, a hand check of the totals
+holds up, and (unless `--no-log`) the log file is written and referenced.
 
 ## References
 
@@ -141,3 +151,5 @@ totals holds up.
   matrices over 30 cells, or when the user asks about strategies.
 - [references/output.md](references/output.md) - verdict layout. Read at
   Step 5.
+- [references/log.md](references/log.md) - reasoning-log file format and path.
+  Read at Step 5 unless `--no-log`.

@@ -73,6 +73,8 @@ you.
 
 Low confidence: ML master's/Compensation (stipend never stated).
 
+Details in .tiebreaker/2026-07-20-next-move.md
+
 ## What this demonstrates
 
 - Model invocation: plain "help me decide" conversation, no slash command.
@@ -84,3 +86,6 @@ Low confidence: ML master's/Compensation (stipend never stated).
   weight (5), and it names the factor the decision actually hinges on.
 - Reasoning-mode evidence gaps surface in the low-confidence footnote instead
   of silently hardening into scores.
+- The reasoning log is still written (default), captured per
+  [references/log.md](../skills/tiebreaker/references/log.md); with `--no-web`
+  it has no Sources section.
